@@ -12,11 +12,11 @@ function Node(props) {
 
     return (
         <div
-        id={`node-${props.row}-${props.col}`}
-        className={`node ${extraClassName}`}
-        // onMouseDown={() => onMouseDown(row, col)}
-        // onMouseEnter={() => onMouseEnter(row, col)}
-        // onMouseUp={() => onMouseUp()}
+            id={`node-${props.row}-${props.col}`}
+            className={`node ${extraClassName}`}
+            onMouseDown={() => {props.onMouseDown(props.row, props.col)}}
+            onMouseEnter={() => {props.onMouseEnter(props.row, props.col)}}
+            onMouseUp={() => {props.onMouseUp()}}
         >
 
         </div>
