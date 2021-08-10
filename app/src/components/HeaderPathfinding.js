@@ -9,9 +9,9 @@ import './Node.css'
 
 function HeaderPathfinding(props) {
     const [wallValue, setWallValue] = useState("Wall");
+    const [weightValue, setWeightValue] = useState("Weight")
 
-
-    const wall = () =>{
+    function handleClickWall(wallValue){
         if(wallValue === "Wall"){
             setWallValue("Stop");
             // document.getElementById("wall").color = "";
@@ -22,21 +22,35 @@ function HeaderPathfinding(props) {
             // document.getElementById("wall").color = "secondary";
             // document.getElementById("wall").className = "";
         }
+        props.onWall(wallValue);
     }
-    const handleClickWall = () => {
-        props.onWall();
-        wall();
+    function handleClickWeight(weightValue){
+        if(weightValue === "Weight"){
+            setWeightValue("Stop");
+            // document.getElementById("wall").color = "";
+            // document.getElementById("wall").style.backgroundColor = "black";
+        }
+        else{
+            setWeightValue("Weight");
+            // document.getElementById("wall").color = "secondary";
+            // document.getElementById("wall").className = "";
+        }
+        props.onWeight(weightValue);
     }
     
     return (
+       
         <div className="button">
+            <h2>Path Finding Visualizer</h2>
+            <p>Dijkstra's Algorithm</p>
             <Button variant="contained" color="secondary"
                 onClick = {() => props.onVisualize()}>Visualize</Button>
             <Button variant="contained" color="secondary" 
                 onClick = {() => props.onClear()}>Clear</Button>
             <Button id="wall" variant="contained" color="secondary" 
-                onClick = {() => handleClickWall()}>{`${wallValue}`}</Button>
-            <Button variant="contained" color="secondary">Weights</Button>
+                onClick = {() => handleClickWall(wallValue)}>{`${wallValue}`}</Button>
+            <Button variant="contained" color="secondary"
+                onClick = {() => handleClickWeight(weightValue)}>{`${weightValue}`}</Button>
         </div>
     )
 }
