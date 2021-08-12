@@ -1,23 +1,19 @@
 import './App.css';
-import Pathfinding from './components/Pathfinding';
-import Button from '@material-ui/core/Button';
 import React, { useState, useEffect } from 'react';
+import Header from './components/Header';
+import Home from './components/Home';
+import Pathfinding from './components/Pathfinding/Pathfinding';
+import Sorting from './components/Sorting/Sorting';
 
 function App() {
-  const[algo,setalgo] = useState("");
+  const[algo, setalgo] = useState("Home");
   return (
     <div className="App" >
-        <h2>Algorithm Visualizer</h2>
-       <div className="button">
-            <Button variant="contained" color="secondary"
-                onClick = {() => setalgo("BFS")} className ={``} >BFS</Button>
-            <Button variant="contained" color="secondary" 
-                onClick = {() => setalgo("dijkstra") } className ={``} >DIJKSTRA</Button>
-            <Button variant="contained" color="secondary"
-                 onClick = {() => setalgo("sorting") } className ={``} >SORTING</Button>
-        </div>
-        {(algo === "BFS") ? (<Pathfinding />) : (algo === "dijkstra") ? (<Pathfinding />) : (<p>Hello</p>)}
-        
+        <Header setalgo = {setalgo}/>
+        {(algo === "Home") ? (<Home setalgo = {setalgo} />) : (algo === "BFS") ? (<Pathfinding algo={algo} />) 
+        : (algo === "Dijkstra") ? (<Pathfinding algo={algo} />) 
+        : (algo === "Sorting") ? (<Sorting />) 
+        : (<Home setalgo = {setalgo} />)}
     </div>
   );
 }

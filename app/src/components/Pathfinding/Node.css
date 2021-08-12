@@ -52,6 +52,9 @@
 }
 
 .node-weight{
+  background-color: brown;
+}
+.weight-node-visited{
   background-color: orange;
 }
 
