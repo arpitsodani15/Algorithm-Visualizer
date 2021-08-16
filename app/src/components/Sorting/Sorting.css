@@ -1,0 +1,16 @@
+.container {
+    height: 650px;
+}
+.array-container{
+    height: 525px;
+    padding-top: 25px;
+}
+.array-bar{
+    width: 10px;
+    display: inline-block;
+    margin: 0 1px;
+}
+.button-container{
+    display: flex;
+    justify-content: space-evenly;
+}

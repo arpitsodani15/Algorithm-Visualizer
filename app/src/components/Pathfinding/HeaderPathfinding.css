@@ -10,3 +10,15 @@
         margin: 25px 50px 50px;
     }
 }
+.button {
+    text-align: center;
+  }
+  .button h2{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .button p{
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  

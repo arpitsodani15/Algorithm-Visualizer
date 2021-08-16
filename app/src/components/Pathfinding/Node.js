@@ -7,18 +7,16 @@ function Node(props) {
     : props.isStart
     ? 'node-start'
     : props.isWall
-    ? 'node-wall'
-    : '';
-
+    ? 'node-wall' : '';
+    const weightClass = (props.weight > 1) ? 'node-weight' : '';
     return (
         <div
             id={`node-${props.row}-${props.col}`}
-            className={`node ${extraClassName}`}
+            className={`node ${extraClassName} ${weightClass}`}
             onMouseDown={() => {props.onMouseDown(props.row, props.col)}}
             onMouseEnter={() => {props.onMouseEnter(props.row, props.col)}}
             onMouseUp={() => {props.onMouseUp()}}
         >
-
         </div>
     )
 }
