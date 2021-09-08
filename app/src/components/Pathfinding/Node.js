@@ -8,7 +8,7 @@ function Node(props) {
     ? 'node-start'
     : props.isWall
     ? 'node-wall' : '';
-    const weightClass = (props.weight > 1) ? 'node-weight' : '';
+    const weightClass = (props.weight > 0) ? 'node-weight' : '';
     return (
         <div
             id={`node-${props.row}-${props.col}`}

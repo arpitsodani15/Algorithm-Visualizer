@@ -140,7 +140,7 @@ function Pathfinding({algo}) {
             }
             setTimeout(() => {
             const node = visitedNodesInOrder[i];
-            if(node.weight===1){
+            if(node.weight===0){
             document.getElementById(`node-${node.row}-${node.col}`).className =
                 'node node-visited';
             }

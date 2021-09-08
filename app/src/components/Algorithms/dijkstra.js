@@ -53,6 +53,7 @@ export function dijkstra(grid, startNode, finishNode) {
         if(closestNode === finishNode) return visitedNodesInOrder;
         updateUnvisitedNeighbors(closestNode, grid);
     }
+    return visitedNodesInOrder;
 }
 
 // backtracks only after calling dijkstra

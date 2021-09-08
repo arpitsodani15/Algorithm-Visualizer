@@ -19,7 +19,7 @@ export function createNode(row, col, startRow, startColumn, endRow, endColumn) {
         distance: Infinity,
         isVisited: false,
         isWall: false,
-        weight: 1,
+        weight: 0,
         previousNode: null,
     };
 };
@@ -34,7 +34,7 @@ export function getNewGridWithWallToggled(row, col, grid, setGrid){
         return;
     }
     const newNode = {
-        weight: 1,
+        weight: 0,
         ...node,
         isWall: !node.isWall,
     };
@@ -52,7 +52,7 @@ export function getNewGridWithWeight(row, col, grid, setGrid){
     }
     const newNode = {
         ...node,
-        weight: 2,
+        weight: 1,
     };
     newGrid[row][col] = newNode;
     setGrid(newGrid);
