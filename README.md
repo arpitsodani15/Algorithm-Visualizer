@@ -24,7 +24,7 @@ Dijkstra Algorithm - The image above diplays the given starting point as green b
 The Algorithm finds the path which have the minimum cost.
 
 ![Dijkstra](Dijkstra2.png)
-The minimum cost path is shown,
+The minimum cost path is shown in yellow.
 
 
 ![Sort](Sort1.png)
