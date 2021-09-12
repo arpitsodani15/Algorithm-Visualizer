@@ -1,7 +1,6 @@
 # Algorithm-Visualizer
-> This is a capstone Project.
+> This is a capstone Project. The app focuses on visualization of some widely used algorithms.
 
-The app focuses on visualization of some widely used algorithms
 1. Dijkstra's Algorithm
 2. Insertion Sort
 3. Merge Sort
