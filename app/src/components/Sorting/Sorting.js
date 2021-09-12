@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {getMergeSortAnimations, getBubbleSortAnimations, getInsertionSortAnimations} from '../Algorithms/sortingAlgorithms.js';
+import {getMergeSortAnimations, getBubbleSortAnimations, getInsertionSortAnimations, getQuickSortAnimations} from '../Algorithms/sortingAlgorithms.js';
 import "./Sorting.css";
 import Button from '@material-ui/core/Button';
 
@@ -7,7 +7,7 @@ function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const ANIMATION_SPEED_MS = 3;
+const ANIMATION_SPEED_MS = 20;
 
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 100;
@@ -58,9 +58,6 @@ function Sorting() {
         }
     }
     
-    function quickSort() {
-    }
-    
     function insertionSort() {
         const animations = getInsertionSortAnimations(array);
         for (let i = 0; i < animations.length; i++) {
@@ -73,7 +70,6 @@ function Sorting() {
                 const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
                 setTimeout(() => {
                 barOneStyle.backgroundColor = color;
-                barTwoStyle.backgroundColor = color;
                 }, i * ANIMATION_SPEED_MS);
             } 
             else {
@@ -97,6 +93,35 @@ function Sorting() {
             const isColorChange = i % 3 !== 2;
             if (isColorChange) {
                 console.log(animations[i]);
+                const [barOneIdx, barTwoIdx] = animations[i];
+                const barOneStyle = arrayBars[barOneIdx].style;
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+                setTimeout(() => {
+                barOneStyle.backgroundColor = color;
+                barTwoStyle.backgroundColor = color;
+                }, i * ANIMATION_SPEED_MS);
+            } 
+            else {
+                if(animations[i].length === 4){
+                    const [barOneIdx, newHeightOne, barTwoIdx, newHeightTwo] = animations[i];
+                    setTimeout(() => {
+                        const barOneStyle = arrayBars[barOneIdx].style;
+                        barOneStyle.height = `${newHeightOne}px`;
+                        const barTwoStyle = arrayBars[barTwoIdx].style;
+                        barTwoStyle.height = `${newHeightTwo}px`;
+                        }, i * ANIMATION_SPEED_MS);
+                }
+            }
+        }
+    }
+    
+    function quickSort() {
+        const animations = getInsertionSortAnimations(array);
+        for (let i = 0; i < animations.length; i++) {
+            const arrayBars = document.getElementsByClassName('array-bar');
+            const isColorChange = i % 3 !== 2;
+            if (isColorChange) {
                 const [barOneIdx, barTwoIdx] = animations[i];
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;

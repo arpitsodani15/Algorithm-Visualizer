@@ -1,3 +1,14 @@
+const swap = (arr, left, right, animations) =>  {
+  animations.push([left, right]);
+  animations.push([left, right]);
+  animations.push([left, arr[right], right, arr[left]]);
+  const temp = arr[left]
+  arr[left] = arr[right]
+  arr[right] = temp;
+}
+
+
+// Merge Sort
 export function getMergeSortAnimations(array) {
   const animations = [];
   if (array.length <= 1) return array;
@@ -14,8 +25,7 @@ function mergeSortHelper(mainArray, startIdx, endIdx, auxiliaryArray, animations
   doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations);
 }
 
-function doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations,
-) {
+function doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animations) {
   let k = startIdx;
   let i = startIdx;
   let j = middleIdx + 1;
@@ -64,6 +74,8 @@ function doMerge(mainArray, startIdx, middleIdx, endIdx, auxiliaryArray, animati
   }
 }
 
+
+// Bubble Sort
 export function getBubbleSortAnimations(array) {
   const animations = [];
   for(let i = 0; i < array.length; i++){
@@ -84,51 +96,26 @@ export function getBubbleSortAnimations(array) {
   return animations;
 }
 
+
+
+// Insertion Sort
 export function getInsertionSortAnimations(array) 
 { 
   const animations = [];
   const n = array.length;
-  let i, key, j; 
-  for (i = 1; i < n; i++){ 
-    key = array[i]; 
-    j = i - 1;
-    /* Move elements of arr[0..i-1], that are 
-    greater than key, to one position ahead 
-    of their current position */
-    while (j >= 0 && array[j] > key){ 
-      animations.push([j, j+1]);
-      animations.push([j, j+1]); 
-      animations.push([j+1, array[j], j, array[j+1]]); 
-      array[j + 1] = array[j]; 
-      j = j - 1; 
+  
+  for (let i = 1; i < n; i++) {
+    for (let j = i; j > 0 && array[j - 1] > array[j]; j--) {
+        swap(array, j, j - 1, animations);
     }
-    if(i!=n-1){ 
-      animations.push([i, j+1]);
-      animations.push([i, j+1]);
-      animations.push([i, array[j+1], j+1, key]);
-    }
-    else{
-      while (j >= 0 && array[j] > key){ 
-        animations.push([j, j+1]);
-        animations.push([j, j+1]); 
-        animations.push([j+1, array[j], j, array[j+1]]); 
-        array[j + 1] = array[j]; 
-        j = j - 1; 
-      }
-    }
-    
-    array[j + 1] = key; 
-  } 
+  }
   return animations;
 } 
 
 
-const swap = (arr, left, right) =>  {
-  const temp = arr[left]
-  arr[left] = arr[right]
-  arr[right] = temp;
-}
 
+
+//Quicksort
 const partitionHigh = (arr, low, high, animations) => {
   //Pick the first element as pivot
   let pivot = arr[high];
@@ -136,17 +123,12 @@ const partitionHigh = (arr, low, high, animations) => {
   
   //Partition the array into two parts using the pivot
   for(let j = low; j < high; j++){
-    animations.push([j, high]);
-    animations.push([j, high]);
     if(arr[j] <= pivot){      
-      animations.push([j, pivot, high, arr[j]]);
-      swap(arr, i, j);
+      swap(arr, i, j, animations);
       i++;
     }
   }
-  
-  swap(arr, i, high);
-  
+  swap(arr, i, high, animations);
   //Return the pivot index
   return i;
 }
