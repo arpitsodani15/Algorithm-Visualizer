@@ -13,5 +13,5 @@ It is a work in progess and many more algorithms will be added in the future.
 * [Arpit Sodani](https://github.com/arpitsodani15)
 * [Lakshit Jain](https://github.com/jain-lakshit)
 
-### The porject is deployed at -  . Check it out!!
+### The project is deployed at -  . Check it out!!
 
