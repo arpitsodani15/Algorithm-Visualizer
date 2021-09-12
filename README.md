@@ -15,3 +15,13 @@ It is a work in progess and many more algorithms will be added in the future.
 
 ### The project is deployed at - [Algorithm Visualizer](https://algorithm-visualizer-9c27e.web.app/) . Check it out!!
 
+
+## Screenshots
+![Dijkstra](Dijkstra1.png)
+![Dijkstra](Dijkstra2.png)
+![Sort](Sort1.png)
+![Sort](Sort2.png)
+![Sort](Sort3.png)
+
+
+
