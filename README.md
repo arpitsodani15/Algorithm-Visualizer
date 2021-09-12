@@ -9,8 +9,8 @@
 It is a work in progess and many more algorithms will be added in the future.
 
 ## Contributors 
-* jain-lakshit
 * arpitsodani15
+* [Lakshit Jain](https://github.com/jain-lakshit)
 
 ### The porject is deployed at - https://algorithm-visualizer-31260.web.app/ . Check it out!!
 
