@@ -13,6 +13,7 @@ It is a work in progess and many more algorithms will be added in the future.
 * [Arpit Sodani](https://github.com/arpitsodani15)
 * [Lakshit Jain](https://github.com/jain-lakshit)
 
-### The project is deployed at -  https://algorithm-visualizer-9c27e.web.app/
+
+### The project is deployed at -  [Algorithm Visualizer](https://algorithm-visualizer-9c27e.web.app/)
 ### Check it out!!
 
